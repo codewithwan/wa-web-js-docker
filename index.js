@@ -1,5 +1,6 @@
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");
+const cron = require("node-cron");
 
 const client = new Client({
     authStrategy: new LocalAuth(),
@@ -22,6 +23,15 @@ client.on("message", async (message) => {
     console.log(`Pesan dari ${message.from}: ${message.body}`);
     if (message.body.toLowerCase() === "ping") {
         message.reply("Pong!");
+    }
+    if (message.body.toLowerCase() === "/cron") {
+        message.reply("Cron job dijadwalkan, Anda akan menerima pesan dalam 2 menit.");
+        cron.schedule('*/2 * * * *', () => {
+            client.sendMessage(message.from, "Ini adalah pesan dari cron job setelah 2 menit.");
+        }, {
+            scheduled: true,
+            timezone: "Asia/Jakarta"
+        });
     }
 });
 
