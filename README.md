@@ -4,8 +4,8 @@ This microservice uses `whatsapp-web.js` to create a WhatsApp bot that can respo
 
 ## Features
 
-- Responds to "ping" messages with "Pong!"
-- Schedules a cron job to send a message back to the user after 2 minutes when they type `/cron`
+- Responds to "ping" messages with "Pong!" after a 2-second delay and typing effect
+- Schedules a cron job to send a message back to the user after 2 minutes when they type `/cron`, with a 2-second delay and typing effect
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ docker run -it --name my-wa-bot wa-bot
 
 ### Usage
 
-1. Scan the QR code displayed in the terminal to authenticate the bot with your WhatsApp account.
-2. Send a message "ping" to the bot, and it will reply with "Pong!".
-3. Send a message "/cron" to the bot, and it will schedule a cron job to send a message back to you after 2 minutes.
+1. Scan the QR code displayed in the terminal to authenticate the bot with your WhatsApp account.d
+2. Send a message "ping" to the bot, and it will reply with "Pong!" after a 2-second delay and typing effect.
+3. Send a message "/cron" to the bot, and it will schedule a cron job to send a message back to you after 2 minutes, with a 2-second delay and typing effect.
 
 ## Files
 
